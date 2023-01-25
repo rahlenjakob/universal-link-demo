@@ -30,6 +30,12 @@ const Main = () => {
           }}>Open</button>
         </section>
         <section>
+          <h2>Button press with event handler (window.open)</h2>
+          <button onClick={() => {
+            window.open(URLToOpen) 
+          }}>Open</button>
+        </section>
+        <section>
           <h2>Button press with async event handler</h2>
           <button onClick={async () => {
             await new Promise(r => setTimeout(r, 2000));
