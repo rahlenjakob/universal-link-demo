@@ -14,7 +14,7 @@ const Main = () => {
     <div className="App">
       <main>
         <h1>App handovers</h1>
-        <p>Assumes that you have the Github app installed</p>
+        <p>Assumes that you have the BankID app installed</p>
         <section>
           <h2>Direct link press</h2>
           <a
