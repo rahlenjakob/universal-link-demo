@@ -20,6 +20,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+      - name: Install
+        run: yarn
       - name: Build
         run: yarn build
 
