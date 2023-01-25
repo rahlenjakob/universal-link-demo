@@ -13,7 +13,7 @@ const IFrame = () => {
       </section>
       <section>
         <h2>Direct link press</h2>
-        <a target="_blank" href={URLToOpen}>Open</a>
+        <a rel="noreferrer" target="_blank" href={URLToOpen}>Open</a>
       </section>
       <section>
         <h2>Button press with event handler</h2>
