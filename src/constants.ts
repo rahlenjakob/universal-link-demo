@@ -1,1 +1,1 @@
-export const URLToOpen = "https://github.com/rahlenjakob"
+export const URLToOpen = "https://app.bankid.com/?autostarttoken=faketoken&redirect=https://google.com"

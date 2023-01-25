@@ -38,7 +38,7 @@ const Main = () => {
         </section>
         <section>
           <h2>Iframe embed</h2>
-          <iframe title="iframe" src={window.location.href} />
+          <iframe sandbox='allow-forms allow-modals allow-orientation-lock allow-pointer-lock	allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation' title="iframe" src={window.location.href} />
         </section>
       </main>
     </div>

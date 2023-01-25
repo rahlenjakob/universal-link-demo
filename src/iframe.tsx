@@ -13,13 +13,13 @@ const IFrame = () => {
       </section>
       <section>
         <h2>Direct link press</h2>
-        <a href={URLToOpen}>Open</a>
+        <a target="_blank" href={URLToOpen}>Open</a>
       </section>
       <section>
         <h2>Button press with event handler</h2>
         <button
           onClick={() => {
-            window.location.href = URLToOpen;
+            window.open(URLToOpen);
           }}
         >
           Open
@@ -30,7 +30,7 @@ const IFrame = () => {
         <button
           onClick={async () => {
             await new Promise((r) => setTimeout(r, 2000));
-            window.location.href = URLToOpen;
+            window.open(URLToOpen);
           }}
         >
           Open
