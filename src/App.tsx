@@ -30,6 +30,10 @@ function App() {
             window.location.href = URL
           }}>Open</button>
         </section>
+        <section>
+          <h2>Iframe embed</h2>
+          <iframe title="iframe" src="https://rahlenjakob.github.io/universal-link-demo/" />
+        </section>
       </main>
     </div>
   );
