@@ -66,7 +66,7 @@ const Main = () => {
         </section>
         <section>
           <h2>JS redirect on window load</h2>
-          <a href={`${window.location.protocol}//${window.location.host}?redirect=${encodeURI(url)}`}>
+          <a href={`${window.location.protocol}//${window.location.host}${window.location.pathname}?redirect=${encodeURI(url)}`}>
             Open
           </a>
         </section>
