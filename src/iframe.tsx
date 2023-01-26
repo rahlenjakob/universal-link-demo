@@ -97,16 +97,34 @@ const IFrame = () => {
         </button>
       </section>
       <section>
-          <h3>7.7. JS redirect on window load with top.location</h3>
+          <h3>7.7 JS redirect on window load with top.location</h3>
           <a href={`${window.location.protocol}//${window.location.host}${window.location.pathname}?redirect=${encodeURI(url)}`}>
             Open
           </a>
         </section>
         <section>
-          <h3>7.8. JS redirect on window with window.open</h3>
+          <h3>7.8 JS redirect on window with window.open</h3>
           <a href={`${window.location.protocol}//${window.location.host}${window.location.pathname}?redirect=${encodeURI(url)}&open=true`}>
             Open
           </a>
+        </section>
+        <section>
+          <h3>7.9 Async JS redirect on window load with top.location</h3>
+          <button onClick={async () => {
+            await new Promise(r => setTimeout(r, 2000));
+            document.location.href = `${window.location.protocol}//${window.location.host}${window.location.pathname}?redirect=${encodeURI(url)}`
+          }}>
+            Open
+          </button>
+        </section>
+        <section>
+          <h3>7.10 Async JS redirect on window with window.open</h3>
+          <button onClick={async () => {
+            await new Promise(r => setTimeout(r, 2000));
+            document.location.href = `${window.location.protocol}//${window.location.host}${window.location.pathname}?redirect=${encodeURI(url)}?open=true`
+          }}>
+            Open
+          </button>
         </section>
     </main>
   );
