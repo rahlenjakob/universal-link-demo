@@ -19,15 +19,15 @@ const IFrame = () => {
   return (
     <main>
       <section>
-        <h2>Postmessage back</h2>
+        <h3>Postmessage back</h3>
         <button onClick={sendMessage}>Open</button>
       </section>
       <section>
-        <h2>Direct link press</h2>
+        <h3>Direct link press</h3>
         <a rel="noreferrer" target="_blank" href={url}>Open</a>
       </section>
       <section>
-        <h2>Button press with event handler</h2>
+        <h3>Button press with event handler</h3>
         <button
           onClick={() => {
             window.open(url);
@@ -37,7 +37,7 @@ const IFrame = () => {
         </button>
       </section>
       <section>
-        <h2>Button press with async event handler</h2>
+        <h3>Button press with async event handler</h3>
         <button
           onClick={async () => {
             await new Promise((r) => setTimeout(r, 2000));

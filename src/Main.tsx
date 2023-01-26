@@ -56,7 +56,7 @@ const Main = () => {
         </section>
         <section>
           <h2>Iframe embed</h2>
-          <iframe ref={ref} sandbox='allow-forms allow-modals allow-orientation-lock allow-pointer-lock	allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation' title="iframe" src={window.location.href} />
+          <iframe style={{ width: '100%', height: 400}} ref={ref} sandbox='allow-forms allow-modals allow-orientation-lock allow-pointer-lock	allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation' title="iframe" src={window.location.href} />
         </section>
       </main>
     </div>
