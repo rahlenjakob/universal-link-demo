@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/universal-link-demo/static/css/main.31d6cfe0.css",
-    "main.js": "/universal-link-demo/static/js/main.1e52a50c.js",
+    "main.js": "/universal-link-demo/static/js/main.25b423d4.js",
     "index.html": "/universal-link-demo/index.html",
-    "main.1e52a50c.js.map": "/universal-link-demo/static/js/main.1e52a50c.js.map"
+    "main.25b423d4.js.map": "/universal-link-demo/static/js/main.25b423d4.js.map"
   },
   "entrypoints": [
     "static/css/main.31d6cfe0.css",
-    "static/js/main.1e52a50c.js"
+    "static/js/main.25b423d4.js"
   ]
 }
