@@ -16,6 +16,29 @@ const IFrame = () => {
       }
     })
   }, [])
+
+  useEffect(() => {
+    const query = new URLSearchParams(document.location.search)
+    console.log('query', query)
+    const redirect = query.get('redirect')
+    const open = query.get('open')
+    if(redirect) {
+      const decoded = decodeURI(redirect)
+      console.log('open', open)
+      if(open) {
+        window.open(decoded)
+      } else {
+        // eslint-disable-next-line no-restricted-globals
+        if(!top) {
+          alert("Top window not found")
+          return
+        }
+        // eslint-disable-next-line no-restricted-globals
+        top.location.href = decoded
+      }
+    }
+
+  }, [])
   return (
     <main>
       <section>
@@ -73,6 +96,18 @@ const IFrame = () => {
           Open
         </button>
       </section>
+      <section>
+          <h3>7.7. JS redirect on window load with top.location</h3>
+          <a href={`${window.location.protocol}//${window.location.host}${window.location.pathname}?redirect=${encodeURI(url)}`}>
+            Open
+          </a>
+        </section>
+        <section>
+          <h3>7.8. JS redirect on window with window.open</h3>
+          <a href={`${window.location.protocol}//${window.location.host}${window.location.pathname}?redirect=${encodeURI(url)}&open=true`}>
+            Open
+          </a>
+        </section>
     </main>
   );
 };
