@@ -20,9 +20,15 @@ const Main = () => {
   useEffect(() => {
     const query = new URLSearchParams(window.location.search)
     const redirect = query.get('redirect')
+    const open = query.get('open')
     if(redirect) {
       const decoded = decodeURI(redirect)
-      window.location.href = decoded
+      console.log('open', open)
+      if(open) {
+        window.open(decoded)
+      } else {
+        window.location.href = decoded
+      }
     }
 
   }, [])
@@ -67,6 +73,12 @@ const Main = () => {
         <section>
           <h2>JS redirect on window load</h2>
           <a href={`${window.location.protocol}//${window.location.host}${window.location.pathname}?redirect=${encodeURI(url)}`}>
+            Open
+          </a>
+        </section>
+        <section>
+          <h2>JS redirect on window with window.open</h2>
+          <a href={`${window.location.protocol}//${window.location.host}${window.location.pathname}?redirect=${encodeURI(url)}&open=true`}>
             Open
           </a>
         </section>
