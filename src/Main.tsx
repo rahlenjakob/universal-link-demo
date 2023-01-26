@@ -16,6 +16,16 @@ const Main = () => {
       url: URLToOpen
     }))
   }, [ref])
+
+  useEffect(() => {
+    const query = new URLSearchParams(window.location.search)
+    const redirect = query.get('redirect')
+    if(redirect) {
+      const decoded = decodeURI(redirect)
+      window.location.href = decoded
+    }
+
+  }, [])
   return (
     <div className="App">
       <main>
@@ -53,6 +63,12 @@ const Main = () => {
             await new Promise(r => setTimeout(r, 2000));
             window.location.href = url
           }}>Open</button>
+        </section>
+        <section>
+          <h2>JS redirect on window load</h2>
+          <a href={`${window.location.protocol}//${window.location.host}?redirect=${encodeURI(url)}`}>
+            Open
+          </a>
         </section>
         <section>
           <h2>Iframe embed</h2>
