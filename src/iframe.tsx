@@ -37,7 +37,33 @@ const IFrame = () => {
         </button>
       </section>
       <section>
-        <h3>7.4 Button press with async event handler</h3>
+        <h3>7.4 Button press with event handler, modifying window.location</h3>
+        <button
+          onClick={() => {
+            window.location.href = url;
+          }}
+        >
+          Open
+        </button>
+      </section>
+      <section>
+        <h3>7.5 Button press with event handler, modifying top.lcaton</h3>
+        <button
+          onClick={() => {
+            // eslint-disable-next-line no-restricted-globals
+            if(!top) {
+              alert("No top window")
+              return
+            }
+            // eslint-disable-next-line no-restricted-globals
+            top.location.href = url;
+          }}
+        >
+          Open
+        </button>
+      </section>
+      <section>
+        <h3>7.6 Button press with async event handler</h3>
         <button
           onClick={async () => {
             await new Promise((r) => setTimeout(r, 2000));
