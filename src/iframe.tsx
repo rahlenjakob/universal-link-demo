@@ -132,6 +132,23 @@ const IFrame = () => {
           <input value={delay} type="number" onChange={(e) => setDelay(parseInt(e.target.value))} />
           <a rel="noreferrer" target="_blank" href={`https://handover-backend-b3vp765qsa-uc.a.run.app?timeout=${delay}&redirect=${encodeURI(url)}`}>Open</a>
         </section>
+        <section>
+          <h3>7.12 Button press with event handler, modifying top.lcaton, redirect to backend with 302</h3>
+          <input value={delay} type="number" onChange={(e) => setDelay(parseInt(e.target.value))} />
+        <button
+          onClick={() => {
+            // eslint-disable-next-line no-restricted-globals
+            if(!top) {
+              alert("No top window")
+              return
+            }
+            // eslint-disable-next-line no-restricted-globals
+            top.location.href = `https://handover-backend-b3vp765qsa-uc.a.run.app?timeout=${delay}&redirect=${encodeURI(url)}`;
+          }}
+        >
+          Open
+        </button>
+        </section>
     </main>
   );
 };
