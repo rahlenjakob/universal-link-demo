@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { URLToOpen } from "./constants";
 
 const IFrame = () => {
+  const [delay, setDelay] = useState(3000)
   const [url, setUrl] = useState(URLToOpen)
   const sendMessage = () => {
     window.parent.postMessage("open", "*");
@@ -128,7 +129,8 @@ const IFrame = () => {
         </section>
         <section>
           <h3>7.11  Direct link press, redirect to backend with 302</h3>
-          <a rel="noreferrer" target="_blank" href={`https://handover-backend-b3vp765qsa-uc.a.run.app?timeout=3000&redirect=${encodeURI(url)}`}>Open</a>
+          <input value={delay} type="number" onChange={(e) => setDelay(parseInt(e.target.value))} />
+          <a rel="noreferrer" target="_blank" href={`https://handover-backend-b3vp765qsa-uc.a.run.app?timeout=${delay}&redirect=${encodeURI(url)}`}>Open</a>
         </section>
     </main>
   );
