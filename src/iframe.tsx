@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { URLToOpen } from "./constants";
 
 const IFrame = () => {
+  const [url, setUrl] = useState(URLToOpen)
   const sendMessage = () => {
     window.parent.postMessage("open", "*");
   };
+
+  useEffect(() => {
+    window.addEventListener('message', (e) => {
+      const json = JSON.parse(e.data)
+      if(json && json.url) {
+        console.log('updating url')
+        setUrl(json.url)
+      }
+    })
+  }, [])
   return (
     <main>
       <section>
@@ -13,13 +24,13 @@ const IFrame = () => {
       </section>
       <section>
         <h2>Direct link press</h2>
-        <a rel="noreferrer" target="_blank" href={URLToOpen}>Open</a>
+        <a rel="noreferrer" target="_blank" href={url}>Open</a>
       </section>
       <section>
         <h2>Button press with event handler</h2>
         <button
           onClick={() => {
-            window.open(URLToOpen);
+            window.open(url);
           }}
         >
           Open
@@ -30,7 +41,7 @@ const IFrame = () => {
         <button
           onClick={async () => {
             await new Promise((r) => setTimeout(r, 2000));
-            window.open(URLToOpen);
+            window.open(url);
           }}
         >
           Open
