@@ -10,6 +10,7 @@ const Main = () => {
     })
   }, [])
   const ref = useRef<any>()
+  const buttonRef = useRef<any>()
   const [url, setUrl] = useState(URLToOpen)
   useEffect(() => {
     ref.current.contentWindow.postMessage(JSON.stringify({
@@ -32,6 +33,13 @@ const Main = () => {
     }
 
   }, [])
+
+  useEffect(() => {
+    if(buttonRef.current) {
+      console.log('buttonRef', buttonRef.current)
+      buttonRef.current.onclick = () => window.location.href=url
+    }
+  }, [buttonRef, url])
   return (
     <div className="App">
       <main>
@@ -85,6 +93,10 @@ const Main = () => {
         <section>
           <h2>7. Iframe embed</h2>
           <iframe style={{ width: '100%', height: 400}} ref={ref} sandbox='allow-forms allow-modals allow-orientation-lock allow-pointer-lock	allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation' title="iframe" src={window.location.href} />
+        </section>
+        <section>
+          <h2>8. Form</h2>
+          <form><input type="button" value="Open" ref={buttonRef} /></form>
         </section>
       </main>
     </div>
