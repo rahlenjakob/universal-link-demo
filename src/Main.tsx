@@ -2,16 +2,18 @@ import React, {useEffect, useRef, useState } from 'react'
 import { URLToOpen } from './constants'
 
 const Main = () => {
+  const [url, setUrl] = useState(URLToOpen)
+  const ref = useRef<any>()
+  const buttonRef = useRef<any>()
+
   useEffect(() => {
     window.addEventListener('message', (e) => {
       if(e.data === 'open') {
-        window.location.href = URLToOpen
+        window.location.href = url
       }
     })
-  }, [])
-  const ref = useRef<any>()
-  const buttonRef = useRef<any>()
-  const [url, setUrl] = useState(URLToOpen)
+  }, [url])
+
   useEffect(() => {
     ref.current.contentWindow.postMessage(JSON.stringify({
       url: URLToOpen
@@ -45,12 +47,18 @@ const Main = () => {
       <main>
         <h1>App handovers</h1>
         <p>Assumes that you have the BankID app installed</p>
-        <input type="url" value={url} onChange={(e) =>{
+        <select value={url} onChange={(e) =>{
           setUrl(e.target.value)
           ref.current.contentWindow.postMessage(JSON.stringify({
             url: e.target.value
           }))
-        }} />
+        }} >
+            <option value={URLToOpen}>BankID universal link</option>
+            <option value={`bankid:///`}>BankID deep link</option>
+            <option value={`https://github.com/rahlenjakob`}>Github universal link</option>
+            <option value={`https:/app.klarna.com/settings/contact-details`}>Klarna universal link</option>
+            <option value={`klarna://`}>Klarna deep link</option>
+        </select>
         <section>
           <h2>1. Direct link press</h2>
           <a
