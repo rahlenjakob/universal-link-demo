@@ -53,11 +53,11 @@ const Main = () => {
             url: e.target.value
           }))
         }} >
-            <option value={URLToOpen}>BankID universal link</option>
-            <option value={`bankid:///`}>BankID deep link</option>
-            <option value={`https://github.com/rahlenjakob`}>Github universal link</option>
-            <option value={`https:/app.klarna.com/settings/contact-details`}>Klarna universal link</option>
-            <option value={`klarna://`}>Klarna deep link</option>
+            <option selected={url === "https://app.bankid.com/?autostarttoken=faketoken&redirect=https://google.com"} value={"https://app.bankid.com/?autostarttoken=faketoken&redirect=https://google.com"}>BankID universal link</option>
+            <option selected={url === `bankid:///`} value={`bankid:///`}>BankID deep link</option>
+            <option selected={url === `https://github.com/rahlenjakob`} value={`https://github.com/rahlenjakob`}>Github universal link</option>
+            <option selected={url === `https:/app.klarna.com/settings/contact-details`} value={`https:/app.klarna.com/settings/contact-details`}>Klarna universal link</option>
+            <option selected={url === `klarna://`} value={`klarna://`}>Klarna deep link</option>
         </select>
         <section>
           <h2>1. Direct link press</h2>
@@ -100,7 +100,7 @@ const Main = () => {
         </section>
         <section>
           <h2>7. Iframe embed</h2>
-          <iframe style={{ width: '100%', height: 400}} ref={ref} sandbox='allow-forms allow-modals allow-orientation-lock allow-pointer-lock	allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation' title="iframe" src={window.location.href} />
+          <iframe style={{ width: '100%', height: 1300}} ref={ref} sandbox='allow-forms allow-modals allow-orientation-lock allow-pointer-lock	allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation' title="iframe" src={window.location.href} />
         </section>
         <section>
           <h2>8. Form</h2>
