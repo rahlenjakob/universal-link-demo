@@ -149,6 +149,17 @@ const IFrame = () => {
           Open
         </button>
         </section>
+        <section>
+          <h3>
+            top.open
+          </h3>
+          <button onClick={() => {
+            // eslint-disable-next-line no-restricted-globals
+            top?.open(url)
+          }}>
+            Open
+          </button>
+        </section>
     </main>
   );
 };
