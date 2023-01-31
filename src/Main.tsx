@@ -32,6 +32,7 @@ export function isAndroidWebView() {
 
 const Main = () => {
   const [url, setUrl] = useState(URLToOpen);
+  const [cookie, setCookieValue] = useState(getCookie(CookieName))
   const ref = useRef<any>();
   const buttonRef = useRef<any>();
   useEffect(() => {
@@ -194,8 +195,9 @@ const Main = () => {
         </section>
         <section>
           <h2>10. Cookies</h2>
-          <input value={getCookie(CookieName)} onChange={(e) => {
+          <input value={cookie} onChange={(e) => {
             setCookie(CookieName, e.target.value, 30)
+            setCookieValue(e.target.value)
           }} />
         </section>
       </main>
