@@ -182,6 +182,21 @@ const IFrame = () => {
             Open
           </div>
         </section>
+        <section>
+          <h3>
+            7.15 window.open top on a div, with an async button
+          </h3>
+          <div onClick={() => {
+            // eslint-disable-next-line no-restricted-globals
+            window.open(url, '_top')
+          }}>
+            <button onClick={async() => {
+              await new Promise(r => setTimeout(r, 2000));
+            }}>
+              Open
+            </button>
+          </div>
+        </section>
     </main>
   );
 };
