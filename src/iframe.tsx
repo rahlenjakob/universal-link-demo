@@ -171,6 +171,17 @@ const IFrame = () => {
             Open
           </button>
         </section>
+        <section>
+          <h3>
+            7.15 window.open top on a div
+          </h3>
+          <div onClick={() => {
+            // eslint-disable-next-line no-restricted-globals
+            window.open(url, '_top')
+          }}>
+            Open
+          </div>
+        </section>
     </main>
   );
 };
