@@ -117,6 +117,15 @@ const Main = () => {
           <option selected={url === `klarna://`} value={`klarna://`}>
             Klarna deep link
           </option>
+          <option selected={url === "http://maps.apple.com/?q=Mexican+Restaurant"} value={"http://maps.apple.com/?q=Mexican+Restaurant"}>
+            Maps universal link
+          </option>
+          <option selected={url === "fb://"} value={"fb://"}>
+            Facebook deep link
+          </option>
+          <option selected={url === "instagram://"} value={"instagram://"}>
+            Instagram deep link
+          </option>
         </select>
         <section>
           <h2>1. Direct link press</h2>
