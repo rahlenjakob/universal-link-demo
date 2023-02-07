@@ -132,7 +132,7 @@ const IFrame = () => {
           <h3>7.11  Direct link press, redirect to backend with 302</h3>
           <input value={delay} type="number" onChange={(e) => setDelay(parseInt(e.target.value))} />
           <input value={statusCode} type="number" onChange={(e) => setStatusCode(parseInt(e.target.value))} />
-          <a rel="noreferrer" target="_blank" href={`https://handover-backend-b3vp765qsa-uc.a.run.app?timeout=${delay}&redirect=${encodeURI(url)}`}>Open</a>
+          <a rel="noreferrer" target="_blank" href={`https://handover-backend-b3vp765qsa-uc.a.run.app?timeout=${delay}&status=${statusCode}&redirect=${encodeURI(url)}`}>Open</a>
         </section>
         <section>
           <h3>7.12 Button press with event handler, modifying top.lcaton, redirect to backend with 302</h3>
@@ -146,7 +146,7 @@ const IFrame = () => {
               return
             }
             // eslint-disable-next-line no-restricted-globals
-            top.location.href = `https://handover-backend-b3vp765qsa-uc.a.run.app?timeout=${delay}&redirect=${encodeURI(url)}`;
+            top.location.href = `https://handover-backend-b3vp765qsa-uc.a.run.app?timeout=${delay}&status=${statusCode}&redirect=${encodeURI(url)}`;
           }}
         >
           Open
