@@ -92,7 +92,7 @@ const IFrame = () => {
         <button
           onClick={async () => {
             await new Promise((r) => setTimeout(r, 2000));
-            window.open(url);
+            window.open(url, '_top');
           }}
         >
           Open
