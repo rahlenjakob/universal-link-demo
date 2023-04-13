@@ -92,7 +92,29 @@ const IFrame = () => {
         <button
           onClick={async () => {
             await new Promise((r) => setTimeout(r, 2000));
+            window.open(url);
+          }}
+        >
+          Open
+        </button>
+      </section>
+      <section>
+        <h3>7.6.1 Button press with async event handler (_top)</h3>
+        <button
+          onClick={async () => {
+            await new Promise((r) => setTimeout(r, 2000));
             window.open(url, '_top');
+          }}
+        >
+          Open
+        </button>
+      </section>
+      <section>
+        <h3>7.6.2 Button press with async event handler (external)</h3>
+        <button
+          onClick={async () => {
+            await new Promise((r) => setTimeout(r, 2000));
+            window.open(url, 'external');
           }}
         >
           Open
