@@ -26,6 +26,7 @@ const isWebView = () => {
   }
 };
 
+
 export function isAndroidWebView() {
   return (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches);
 }
@@ -51,6 +52,10 @@ const Main = () => {
     );
   }, [ref]);
 
+  // useEffect(() => {
+  //   window.location.href = URLToOpen
+  // }, [])
+
   useEffect(() => {
     const query = new URLSearchParams(window.location.search);
     const redirect = query.get("redirect");
@@ -72,6 +77,7 @@ const Main = () => {
       buttonRef.current.onclick = () => (window.location.href = url);
     }
   }, [buttonRef, url]);
+
   return (
     <div className="App">
       <main>
@@ -126,10 +132,13 @@ const Main = () => {
           <option selected={url === "instagram://"} value={"instagram://"}>
             Instagram deep link
           </option>
+          <option selected={url === "https://apps.apple.com/se/app/klarna-shop-now-pay-later/id1115120118"} value={"https://apps.apple.com/se/app/klarna-shop-now-pay-later/id1115120118"}>
+            App store
+          </option>
         </select>
         <section>
           <h2>1. Direct link press</h2>
-          <a href={url}>Open</a>
+          <a href={url} target="_blank" rel="noreferrer" download>Open</a>
         </section>
         <section>
           <h2>2. Button press with event handler</h2>
