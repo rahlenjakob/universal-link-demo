@@ -115,8 +115,8 @@ const Main = () => {
             Github universal link
           </option>
           <option
-            selected={url === `https:/app.klarna.com/settings/contact-details`}
-            value={`https:/app.klarna.com/settings/contact-details`}
+            selected={url === `https://app.klarna.com/settings/contact-details`}
+            value={`https://app.klarna.com/settings/contact-details`}
           >
             Klarna universal link
           </option>
