@@ -123,6 +123,9 @@ const Main = () => {
           <option selected={url === `klarna://`} value={`klarna://`}>
             Klarna deep link
           </option>
+          <option selected={url === `klarnadev://`} value={`klarnadev://`}>
+            Klarna Dev deep link
+          </option>
           <option selected={url === "http://maps.apple.com/?q=Mexican+Restaurant"} value={"http://maps.apple.com/?q=Mexican+Restaurant"}>
             Maps universal link
           </option>
