@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { CookieName, URLToOpen } from "./constants";
 import { getCookie, setCookie } from "./cookies";
 
-
 const isWebView = () => {
   var standalone = (window.navigator as any).standalone,
     userAgent = window.navigator.userAgent.toLowerCase(),
@@ -26,14 +25,15 @@ const isWebView = () => {
   }
 };
 
-
 export function isAndroidWebView() {
-  return (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches);
+  return (
+    window.matchMedia && window.matchMedia("(display-mode: standalone)").matches
+  );
 }
 
 const Main = () => {
   const [url, setUrl] = useState(URLToOpen);
-  const [cookie, setCookieValue] = useState(getCookie(CookieName))
+  const [cookie, setCookieValue] = useState(getCookie(CookieName));
   const ref = useRef<any>();
   const buttonRef = useRef<any>();
   useEffect(() => {
@@ -126,7 +126,10 @@ const Main = () => {
           <option selected={url === `klarnadev://`} value={`klarnadev://`}>
             Klarna Dev deep link
           </option>
-          <option selected={url === "http://maps.apple.com/?q=Mexican+Restaurant"} value={"http://maps.apple.com/?q=Mexican+Restaurant"}>
+          <option
+            selected={url === "http://maps.apple.com/?q=Mexican+Restaurant"}
+            value={"http://maps.apple.com/?q=Mexican+Restaurant"}
+          >
             Maps universal link
           </option>
           <option selected={url === "fb://"} value={"fb://"}>
@@ -135,13 +138,34 @@ const Main = () => {
           <option selected={url === "instagram://"} value={"instagram://"}>
             Instagram deep link
           </option>
-          <option selected={url === "https://apps.apple.com/se/app/klarna-shop-now-pay-later/id1115120118"} value={"https://apps.apple.com/se/app/klarna-shop-now-pay-later/id1115120118"}>
+          <option
+            selected={
+              url ===
+              "https://apps.apple.com/se/app/klarna-shop-now-pay-later/id1115120118"
+            }
+            value={
+              "https://apps.apple.com/se/app/klarna-shop-now-pay-later/id1115120118"
+            }
+          >
             App store
+          </option>
+          <option
+            selected={
+              url ===
+              "intent://api/one_purchase_flow_app_bff/handover#Intent;scheme=klarna;package=com.myklarnamobile;end"
+            }
+            value={
+              "intent://api/one_purchase_flow_app_bff/handover#Intent;scheme=klarna;package=com.myklarnamobile;end"
+            }
+          >
+            Intent URL
           </option>
         </select>
         <section>
           <h2>1. Direct link press</h2>
-          <a href={url} target="_blank" rel="noreferrer" download>Open</a>
+          <a href={url} target="_blank" rel="noreferrer" download>
+            Open
+          </a>
         </section>
         <section>
           <h2>2. Button press with event handler</h2>
@@ -216,10 +240,13 @@ const Main = () => {
         </section>
         <section>
           <h2>10. Cookies</h2>
-          <input value={cookie} onChange={(e) => {
-            setCookie(CookieName, e.target.value, 30)
-            setCookieValue(e.target.value)
-          }} />
+          <input
+            value={cookie}
+            onChange={(e) => {
+              setCookie(CookieName, e.target.value, 30);
+              setCookieValue(e.target.value);
+            }}
+          />
         </section>
       </main>
     </div>
