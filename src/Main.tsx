@@ -160,6 +160,14 @@ const Main = () => {
           >
             Intent URL
           </option>
+          <option
+            selected={
+              url === "intent://payments.klarna.com/opf/latest/app/index.html"
+            }
+            value={"intent://payments.klarna.com/opf/latest/app/index.html"}
+          >
+            Intent URL with universal fallback
+          </option>
         </select>
         <section>
           <h2>1. Direct link press</h2>
